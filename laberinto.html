@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bombas game💣</title>
+  <link rel="stylesheet" href="./laberinto.css">
+</head>
+<body>
+  <div class="container-canvas">
+    <canvas id="game"></canvas>
+      <div class="btns">
+      <button class="btnUp control">arriba</button>
+      <button class="btnLeft control">izquierda</button>
+      <button class="btnRight control">derecha</button>
+      <button class="btnDown control">abajo</button>
+      </div>
+  
+  <div class="mensajes">
+    <p class="vidas">vidas: <span id="lives"></span></p>
+    <p class="tiempo">tiempo ⏳: <span id="time"></span></p>
+    <p class="records">record: 🏆<span id="record"></span></p>
+    <p id="result"></p>
+  </div>
+
+  </div>
+
+  <!--<div class="menu-iniciar">
+    <h1 class="titulo">bomb game</h1>
+    <p class="texto">puedes escapar del laverinto de bombas?</p>
+    <button class="start">iniciar</button>
+  </div>-->
+  <script src="./maps.js"></script>
+  <script src="./laberinto.js"></script>
+  
+</body>
+</html>
