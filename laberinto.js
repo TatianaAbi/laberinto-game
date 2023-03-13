@@ -8,6 +8,9 @@ const spanLives = document.querySelector('#lives')
 const spanTime = document.querySelector('#time')
 const pResult = document.querySelector('#result')
 const spanRecord = document.querySelector('#record')
+const reiniciar = document.querySelector('.reiniciar')
+const pantallaWin = document.querySelector('.menu-iniciar')
+const btn_empezar = document.querySelector('.reiniciar-2')
 
 let canvasSize;
 let elementSize;
@@ -15,7 +18,7 @@ let level = 0
 let lives = 3;
 
 let timeStart;
-let timePlayer;
+//let timePlayer;
 let timeInterval;
 
 const playerPosition = {
@@ -28,6 +31,8 @@ const gifPosition = {
 }
 let enemyPositions = []
 
+reiniciar.addEventListener('click', reiniciarJuego)
+btn_empezar.addEventListener('click', reiniciarJuego)
 window.addEventListener('load', setcanvasSize);
 // resize 'cambio de tamaño' nos avisa cuando el canvas cambiara de tamaño
 window.addEventListener('resize', setcanvasSize)
@@ -56,7 +61,7 @@ function setcanvasSize(){
     playerPosition.y= undefined
     startGame()
 }
-function startGame(){
+ function startGame(){
     
     //definimos el tamaño de la bomba
     game.font = elementSize +'px Verdana'
@@ -113,7 +118,7 @@ function startGame(){
     movePlayer()
 }
 
-function movePlayer(){
+ async function movePlayer(){
     const giftCollisionX = playerPosition.x.toFixed(3) == gifPosition.x.toFixed(3)
     const giftCollisionY = playerPosition.y.toFixed(3) == gifPosition.y.toFixed(3)
     const CoalicionConRegalo = giftCollisionX && giftCollisionY
@@ -127,7 +132,15 @@ function movePlayer(){
       });
       
       if (enemyCollision) {
-       levelFail()
+        const jugadorQuemado = 'BOMB_COLLISION'
+        
+
+        game.fillText(emojis[jugadorQuemado], playerPosition.x,playerPosition.y)
+        
+        
+
+        //setTimeout(levelFail,200)
+          levelFail()
       }
 
     game.fillText(emojis['PLAYER'], playerPosition.x,playerPosition.y)
@@ -138,6 +151,19 @@ function levelWin(){
     startGame()
    
 }
+function reiniciarJuego(){
+    playerPosition.x = undefined;
+    playerPosition.y = undefined;
+    level = 0
+    lives = 3
+    timeStart = undefined
+    if(pResult.innerHTML){
+        pResult.innerHTML = ""
+    }
+        pantallaWin.classList.add('inactive')
+  
+
+    startGame()}
 
 function levelFail(){
     
@@ -169,6 +195,10 @@ function gameWin(){
         localStorage.setItem('record_time', playerTime)
         
         pResult.innerHTML = 'primera vez? Genial ahora supera tu record'
+    }
+
+    if(pantallaWin.classList.contains('inactive')){
+        pantallaWin.classList.remove('inactive')
     }
 }
 function showLives(){
@@ -239,3 +269,4 @@ function moverAbajo(){
     playerPosition.y += elementSize
     startGame()}
 }
+//prueba

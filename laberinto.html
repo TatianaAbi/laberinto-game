@@ -11,28 +11,30 @@
   <div class="container-canvas">
     <canvas id="game"></canvas>
       <div class="btns">
-      <button class="btnUp control">arriba</button>
-      <button class="btnLeft control">izquierda</button>
-      <button class="btnRight control">derecha</button>
-      <button class="btnDown control">abajo</button>
+      <button class="control" id="btnUp">arriba</button>
+      <button class="control" id="btnLeft">izquierda</button>
+      <button class="control" id="btnRight">derecha</button>
+      <button class="control" id="btnDown">abajo</button>
       </div>
   
-  <div class="mensajes">
+    <div class="mensajes">
     <p class="vidas">vidas: <span id="lives"></span></p>
     <p class="tiempo">tiempo ⏳: <span id="time"></span></p>
     <p class="records">record: 🏆<span id="record"></span></p>
-    <p id="result"></p>
-  </div>
+    
+    <button class="reiniciar">reiniciar</button>
+    </div>
+  
 
-  </div>
-
-  <!--<div class="menu-iniciar">
+  <div class="menu-iniciar inactive">
     <h1 class="titulo">bomb game</h1>
-    <p class="texto">puedes escapar del laverinto de bombas?</p>
-    <button class="start">iniciar</button>
-  </div>-->
+    <p id="result"></p>    
+    <button class="reiniciar-2">empezar otra vez</button>
+    </div>
+  </div>
   <script src="./maps.js"></script>
   <script src="./laberinto.js"></script>
+  
   
 </body>
 </html>

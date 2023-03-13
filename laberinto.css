@@ -3,7 +3,8 @@ body{
     background-color: #bb9b9b;
     margin: 0;
     padding: 0;
-    font-family:Georgia, 'Times New Roman', Times, serif
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    
     
 }
 .container-canvas{
@@ -13,6 +14,7 @@ body{
     flex-wrap: wrap;
     height: 100vh;
     width: 100vw;
+    position: relative;
  }
 
  canvas{
@@ -69,11 +71,76 @@ p{
     width: 100%
 }
 
+.menu-iniciar{
+    background:#826666 ;
+    border: 2px solid #382c2c;
+    width: 20rem;
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    margin-top: 0px;
+
+}
+.titulo{
+    text-align: center;
+    color: white;
+    margin: 50px;
+    font-size: 2.5rem;
+}
+#result{
+    text-align: center;
+    color: #382c2c;
+    margin: 0 0 30px ;
+    font-size: 1.5rem;
+}
+.reiniciar-2{
+    font-weight: 600;
+    width: 5rem;
+    height: 2.3rem;
+    margin-left: 35%;
+    background-color: transparent;
+    border: 2px solid #4b3a3a;
+    cursor: pointer;
+
+}
+.reiniciar-2:hover{
+    background: #6e5b5b;
+    color: white;
+    border: 2px solid white;
+}
+.inactive{
+    display: none;
+}
 
 
 
+@media (max-width: 470px) {
+    .control { margin-top: 30px;
+               width: 70px;
+               height: 50px; }
+   /* #btnUp, #btnDown { margin-left: 100%; margin-right: 100%;
+    }*/
+    .btns{
+        display: grid;
+       grid-template-areas: ". arriba arriba ."
+                            "izquierda . . derecha"
+                            ". abajo abajo .";
+    }
+    #btnUp{
+        grid-area: arriba;
+        
+        cursor: pointer;
 
-@media (max-width: 440px) {
-    button { margin-top: 5px; }
-    #up, #down { margin-left: 100%; margin-right: 100%; }
-  }
+    }
+    #btnLeft{
+    grid-area:izquierda ;
+    }
+    #btnRight{
+    grid-area: derecha;
+    }
+    #btnDown{
+    grid-area: abajo;
+    }
+}
